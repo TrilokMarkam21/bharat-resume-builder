@@ -1,7 +1,18 @@
+// server/models/Resume.js
 import mongoose from "mongoose";
 
 const ResumeVersionSchema = new mongoose.Schema(
   {
+    jobCategory: {
+      type: String,
+      enum: ["blue-collar", "grey-collar", "white-collar"],
+      default: "blue-collar",
+    },
+    templateKey: {
+      type: String,
+      enum: ["ats-basic", "modern-flex", "compact"],
+      default: "ats-basic",
+    },
     fullName: String,
     email: String,
     phone: String,
